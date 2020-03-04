@@ -7,7 +7,7 @@ if __name__ == "__main__":
   assert len(sys.argv) <= 2, 'Only takes one argument \'-u\' to automatically add JUnit'
 
   if not os.path.isdir('lib'):
-    subprocess.call('mkdir lib')
+    subprocess.call('mkdir lib', shell=True)
 
   urls = []
   if len(sys.argv) == 1:
@@ -28,7 +28,7 @@ if __name__ == "__main__":
   for url in urls:
     filename = url.split('/')[-1]
     cmd = 'wget -O lib/%s "%s"' % (filename, url)
-    subprocess.call('cmd, shell=True)
+    subprocess.call(cmd, shell=True)
 
     # Append new tag: <a x='1' y='abc'>body text</a>
     new_tag = xml.etree.ElementTree.SubElement(et.getroot(), 'classpathentry')
